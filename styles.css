@@ -6,7 +6,7 @@
 
 body {
   background: #2f3542 url('img/bg.jpg') no-repeat left center/cover;
-  color: #fff;
+  color: #f4e9e9;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -26,7 +26,8 @@ h3 {
 }
 
 .box {
-  border: 1px solid #dedede;
+  background-color: #2e1c36;
+  border: 1px solid #1e1325;
   display: inline-block;
   font-size: 30px;
   margin: 20px;
@@ -35,7 +36,7 @@ h3 {
 .play-again {
   padding: 8px 15px;
   border: 0;
-  background-color: #f4f4f4;
+  background-color: #ffffff;
   border-radius: 5px;
   margin-top: 10px;
 }
