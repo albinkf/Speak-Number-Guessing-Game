@@ -2,7 +2,7 @@ const msgEl = document.getElementById('msg');
 
 // Generate random number
 function getRandomNumber() {
-  return Math.floor(Math.random() * 100) + 1;
+  return Math.floor(Math.random() * 1000) + 1;
 }
 
 const randomNum = getRandomNumber();
@@ -30,7 +30,7 @@ recognition.addEventListener('result', onSpeak);
 function writeMessage(msg) {
   msgEl.innerHTML = ''; // This is fine because it's just clearing out old data, not passing in untrusted data
   const div = document.createElement('div');
-  div.textContent = 'You said: ';
+  div.textContent = 'You: ';
   const span = document.createElement('span');
   span.classList.add('box');
   span.textContent = msg;
@@ -65,16 +65,16 @@ function checkNumber(msg) {
   // Check if the spoken content is a valid number
   if (Number.isNaN(num)) {
     const div = document.createElement('div');
-    div.textContent = 'That is not a valid number';
+    div.textContent = 'GIVE ME A NUMBER! NOT WHATEVER THAT WAS';
     msgEl.append(div);
 
     return;
   }
 
   // Check if it's in range
-  if (num < 1 || num > 100) {
+  if (num < 1 || num > 1000) {
     const div = document.createElement('div');
-    div.textContent = 'Number must be between 1 and 100';
+    div.textContent = 'THE NUMBER IS NOT VALID!!!'
     msgEl.append(div);
 
     return;
@@ -83,7 +83,7 @@ function checkNumber(msg) {
   // Check the number and provide feedback
   if (num === randomNum) {
     const h2 = document.createElement('h2');
-    h2.textContent = `Congrats! You have guessed the number! It was ${num}`;
+    h2.textContent = `YOU ACTUALLY GOT IT! IT WAS ${num}`;
 
     const button = document.createElement('button');
     button.classList.add('play-again');
@@ -96,12 +96,12 @@ function checkNumber(msg) {
     msgEl.append(h2, button);
   } else if (num > randomNum) {
     const div = document.createElement('div');
-    div.textContent = 'GO LOWER';
+    div.textContent = 'WRONG! THINK SMALLER';
     msgEl.append(div);
   } else {
     // if (num < randomNum)
     const div = document.createElement('div');
-    div.textContent = 'GO HIGHER';
+    div.textContent = 'WRONG! THINK BIGGER';
     msgEl.append(div);
   }
 }
